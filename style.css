@@ -1,0 +1,277 @@
+/* Fuentes personalizadas */
+@font-face {
+  font-family: "Dogica";
+  src: url('../assets/fonts/dogica.ttf');
+}
+
+/* Variables globales */
+:root {
+  /* Colores principales */
+  --curse-red: #e74c3c;
+  --curse-dark-red: #c0392b;
+  --curse-light-red: #ff7675;
+  --cursed-pink: #fab1a0;
+  --curse-energy: rgba(231, 76, 60, 0.2);
+  
+  /* Elementos de diseño */
+  --cursed-border: 2px solid var(--curse-red);
+  --card-width: clamp(150px, 20vw, 250px);
+  
+  /* Colores de rareza */
+  --rarity-ssr: #ffd700;
+  --rarity-sr: #c0c0c0;
+  --rarity-r: #CE8946;
+  --rarity-n: var(--curse-red);
+}
+
+/* Animaciones */
+@keyframes curseEnergy {
+  0% { box-shadow: 0 0 10px var(--curse-red); }
+  50% { box-shadow: 0 0 20px var(--curse-red), 0 0 40px var(--curse-energy); }
+  100% { box-shadow: 0 0 10px var(--curse-red); }
+}
+
+@keyframes curseText {
+  0% { text-shadow: 0 0 10px var(--curse-red); }
+  50% { text-shadow: 0 0 20px var(--curse-red), 0 0 30px var(--curse-energy); }
+  100% { text-shadow: 0 0 10px var(--curse-red); }
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes buttonFlash {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* Estilos base */
+body {
+  min-height: 100vh;
+  font-family: 'Teletactile', 'Dogica';
+  color: var(--curse-red);
+  background-color: black;
+  margin: 0;
+  padding: 20px;
+  padding-bottom: 150px; /* Espacio para la barra de selección */
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Ocultar scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Componentes de la interfaz */
+.banner-selection {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 20px;
+  background: rgba(44, 62, 80, 0.95); /* Más opaco para distinguirse mejor */
+  border-top: var(--cursed-border);
+  z-index: 1000;
+  backdrop-filter: blur(5px); /* Efecto de desenfoque para mejor legibilidad */
+}
+
+#bannerSelect {
+  background: rgba(26, 26, 26, 0.8);
+  color: var(--cursed-pink);
+  padding: 10px;
+  border: var(--cursed-border);
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-family: 'Dogica';
+  width: clamp(200px, 50%, 300px);
+}
+
+/* Botones */
+button {
+  background-color: var(--curse-red);
+  border: none;
+  padding: clamp(8px, 2vw, 12px) clamp(15px, 3vw, 25px);
+  border-radius: 8px;
+  margin: clamp(10px, 2vw, 15px);
+  cursor: pointer;
+  transition: all 0.3s ease, opacity 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--curse-dark-red);
+  box-shadow: 0 0 15px var(--curse-red);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  animation: none;
+}
+
+button a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.button-flash {
+  animation: buttonFlash 0.3s ease;
+}
+
+.profileButton {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  margin: 0;
+  background-color: var(--curse-dark-red);
+  animation: curseEnergy 3s infinite;
+}
+
+.profileButton:hover {
+  transform: scale(1.05);
+}
+
+/* Displays de personajes */
+.character-display {
+  margin: 20px auto;
+  width: min(95%, 800px);
+  text-align: center;
+  min-height: 300px;
+  display: none;
+  margin-bottom: 80px; /* Espacio extra para no chocar con la barra */
+}
+
+.character-display.active {
+  display: block;
+}
+
+.multi-character-display {
+  display: none;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  padding: 20px;
+  margin: 20px auto;
+  margin-bottom: 80px; /* Espacio extra para no chocar con la barra */
+  width: min(95%, 1200px);
+  justify-items: center;
+  min-height: 300px;
+}
+
+.multi-character-display.active {
+  display: grid;
+}
+
+/* Tarjetas de personaje */
+.character-card {
+  padding: 20px;
+  border: var(--cursed-border);
+  border-radius: 15px;
+  background: rgba(44, 62, 80, 0.7);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: var(--card-width);
+  aspect-ratio: 2/3;
+  box-sizing: border-box;
+  position: relative;
+  animation: 
+    curseEnergy 3s infinite,
+    cardAppear 0.5s ease-out;
+}
+
+.character-card h3 {
+  margin: 0 0 10px 0;
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+  text-align: center;
+  word-wrap: break-word;
+  width: 100%;
+}
+
+.character-card p {
+  margin: 5px 0;
+  font-size: clamp(0.7rem, 1.2vw, 1rem);
+}
+
+.character-card img {
+  width: 90%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid var(--curse-red);
+  transition: transform 0.3s ease;
+}
+
+.character-card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--curse-red);
+}
+
+/* Estilos de rareza para las tarjetas */
+.character-card[data-rarity="SSR"] {
+  border: 3px solid var(--rarity-ssr);
+  box-shadow: 0 0 15px var(--rarity-ssr);
+}
+
+.character-card[data-rarity="SR"] {
+  border: 3px solid var(--rarity-sr);
+  box-shadow: 0 0 10px var(--rarity-sr);
+}
+
+.character-card[data-rarity="R"] {
+  border: 3px solid var(--rarity-r);
+  box-shadow: 0 0 8px var(--rarity-r);
+}
+
+.character-card[data-rarity="N"] {
+  border: 3px solid var(--rarity-n);
+  box-shadow: 0 0 5px var(--rarity-n);
+}
+
+/* Elementos adicionales */
+#currency {
+  font-size: clamp(20px, 4vw, 28px);
+  color: var(--cursed-pink);
+  animation: curseText 3s infinite;
+  font-weight: bold;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 200px; /* Más espacio en móvil porque los botones se apilan */
+  }
+
+  .multi-character-display {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .banner-selection button {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .character-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .multi-character-display {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}

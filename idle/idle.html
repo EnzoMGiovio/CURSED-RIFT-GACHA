@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idle Coins - JJK Gacha</title>
+    <link rel="stylesheet" href="idle.css">
+</head>
+<body>
+    <div id="idle-container">
+        <h1>Idle Coins</h1>
+        
+        <div id="coins-display">
+            <div class="coins-info">
+                <h2>Current</h2>
+                <p id="current-coins">0</p>
+            </div>
+            
+            <div class="progress-container">
+                <div id="coins-progress" class="progress-bar"></div>
+            </div>
+            
+            <div class="coins-info">
+                <h2>Max</h2>
+                <p id="max-coins">5000</p>
+            </div>
+        </div>
+
+        <div id="time-display">
+            <h2>Time Until Max</h2>
+            <p id="time-remaining">00:00:00</p>
+        </div>
+
+        <button id="collect-btn" class="collect-button">
+            Collect Coins
+        </button>
+
+        <div id="collection-info">
+            <p>Coins accumulate at a rate of <span class="highlight">500</span> per hour</p>
+            <p>Maximum collection: <span class="highlight">6000</span> coins (12 hours)</p>
+        </div>
+        <button id="profile-btn" class="back-button">
+            <a href="../profile/profile.html">Profile</a>
+        </button>
+
+    </div>
+    
+    <script type="module" src="idle.js"></script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+@font-face {
+  font-family: "Dogica";
+  src: url('../assets/fonts/dogica.ttf')
+}
+
+
+:root {
+    --curse-purple: #9b4dca;
+    --curse-blue: #2c3e50;
+    --curse-red: #e74c3c;
+    --cursed-pinky: #FFF0F5;
+    --curse-energy: rgba(155, 77, 202, 0.2);
+    --cursed-border: 2px solid var(--curse-purple);
+  }
+  
+@keyframes curseEnergy {
+  0% { box-shadow: 0 0 10px var(--curse-purple); }
+  50% { box-shadow: 0 0 20px var(--curse-purple), 0 0 40px var(--curse-energy); }
+  100% { box-shadow: 0 0 10px var(--curse-purple); }
+}
+
+@keyframes curseText {
+  0% { text-shadow: 0 0 10px var(--curse-purple); }
+  50% { text-shadow: 0 0 20px var(--curse-purple), 0 0 30px var(--curse-energy); }
+  100% { text-shadow: 0 0 10px var(--curse-purple); }
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Teletactile', 'Dogica';
+  color: var(--curse-purple);
+  position: relative;
+  background-image: url('../assets/img/bg/SUKUNA_SHRINE_0.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#profile {
+  text-align: center;
+  margin-top: clamp(20px, 4vw, 30px);
+  padding: clamp(15px, 3vw, 20px);
+  border: var(--cursed-border);
+  border-radius: 15px;
+  background: rgba(44, 62, 80, 0.7);
+  animation: curseEnergy 3s infinite;
+  width: min(95%, 1200px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#profile img {
+  width: clamp(80px, 15vw, 120px);
+  height: clamp(80px, 15vw, 120px);
+  border-radius: 50%;
+  border: 3px solid var(--curse-purple);
+  box-shadow: 0 0 15px var(--curse-purple);
+  transition: transform 0.3s ease;
+}
+
+#profile img:hover {
+  transform: scale(1.1);
+}
+
+h1 {
+  font-size: clamp(28px, 5vw, 42px);
+  margin-bottom: clamp(15px, 3vw, 20px);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  animation: curseText 3s infinite;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(20px, 4vw, 28px);
+  margin-top: clamp(8px, 2vw, 10px);
+  color: var(--cursed-pinky);
+  animation: curseText 3s infinite;
+}
+
+
+
+#inventory, #favorites, #missingCharacters {
+  margin-top: clamp(25px, 5vw, 40px);
+  padding: clamp(15px, 3vw, 25px);
+  background: rgba(44, 62, 80, 0.7);
+  border-radius: 15px;
+  border: var(--cursed-border);
+  transition: transform 0.3s ease;
+  width: min(95%, 1200px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#inventory:hover, #favorites:hover, #missingCharacters:hover {
+  transform: translateY(-5px);
+}
+
+#inventory h3, #favorites h3, #missingCharacters h3 {
+  font-size: clamp(22px, 4vw, 28px);
+  margin-bottom: clamp(15px, 3vw, 25px);
+  color: var(--cursed-pinky);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  animation: curseText 3s infinite;
+}
+
+#inventoryList, #favoriteList, #missingList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 120px), 1fr));
+  gap: clamp(10px, 2vw, 20px);
+  padding: clamp(10px, 2vw, 15px);
+}
+
+#inventoryList div, #missingList div { /* SPLASHART FAV */
+  width: 100%;
+  max-width: 120px;
+  margin: 0 auto;
+  text-align: center;
+  padding: clamp(8px, 1.5vw, 10px);
+  border-radius: 10px;
+  background: rgba(26, 26, 26, 0.8);
+  transition: all 0.3s ease;
+}
+
+#inventoryList div:hover, #favoriteList div:hover, #missingList div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px var(--curse-purple);
+}
+
+#inventoryList img, #favoriteList img, #missingList img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  object-fit: cover; /* Esto hace que la imagen ocupe todo el espacio sin deformarse */
+  border-radius: 12px;
+  border: 2px solid var(--curse-purple);
+  transition: transform 0.3s ease;
+}
+
+
+button {
+  background-color: var(--curse-purple);
+  border: none;
+  padding: clamp(8px, 2vw, 12px) clamp(15px, 3vw, 25px);
+  border-radius: 8px;
+  margin: clamp(10px, 2vw, 15px) 0;
+  transition: all 0.3s ease;
+}
+
+
+button:hover {
+  background-color: #8034b0;
+  box-shadow: 0 0 15px var(--curse-purple);
+}
+
+button a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#favorites {
+  margin-top: clamp(25px, 5vw, 40px);
+  padding: clamp(15px, 3vw, 25px);
+  background: rgba(44, 62, 80, 0.9);
+  border-radius: 15px;
+  border: var(--cursed-border);
+  transition: transform 0.3s ease;
+  width: min(95%, 1200px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#favoriteList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.character-splashart {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.character-splashart:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+}
+
+.splashart-wrapper {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.splashart-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.favorite-btn {
+  position: absolute;
+  top: 70%;
+  right: 0%;
+  background-color: var(--curse-purple);
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.favorite-btn:hover {
+  background-color: #8034b0;
+}
+
+.character-splashart h4 {
+  margin: 10px 0 0;
+  font-size: 20px;
+  text-align: center;
+  color: var(--cursed-pinky);
+  text-transform: uppercase;
+}
+
+
+/* Style for the characters on inventory */
+#inventoryList .character-card {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  padding: 8px;
+  border-radius: 10px;
+  background: rgba(26, 26, 26, 0.8);
+  transition: all 0.3s ease;
+}
+
+#inventoryList .character-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+#inventoryList .character-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px var(--curse-purple);
+}
+
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: #1f1f1f;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.achievement-item {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #2f2f2f;
+  border-radius: 4px;
+}
+
+.achievement-item.completed {
+  background-color: #1a472a;
+}
+
+.achievement-progress {
+  margin-top: 5px;
+  height: 10px;
+  background-color: #444;
+  border-radius: 5px;
+}
+
+.achievement-progress-bar {
+  height: 100%;
+  background-color: #0f0;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+/* HIDE SCROLLBAR (for style points) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+@media (max-width: 768px) {
+  #inventoryList, #favoriteList, #missingList {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+  }
+  
+  #inventoryList div, #favoriteList div, #missingList div {
+    max-width: 90px;
+  }
+  
+  #inventoryList img, #favoriteList img, #missingList img {
+    max-width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  #inventoryList, #favoriteList, #missingList {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  }
+  
+  #inventoryList div, #favoriteList div, #missingList div {
+    max-width: 70px;
+  }
+  
+  #inventoryList img, #favoriteList img, #missingList img {
+    max-width: 60px;
+  }
+}

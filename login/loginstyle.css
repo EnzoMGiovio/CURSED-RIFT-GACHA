@@ -1,0 +1,228 @@
+/* Custom font */
+@font-face {
+    font-family: "Dogica";
+    src: url('../assets/fonts/dogica.ttf')
+}
+
+:root {
+    --neon-yellow: #FFFF33;
+}
+
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background image setup */
+body {
+    min-height: 100vh;
+    font-family: 'Teletactile', 'Dogica';
+    color: #e0e0e0;
+    position: relative;
+    overflow: hidden;
+    background-image: url('../assets/img/bg/menu_cursed_rift_0.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Animated logo container */
+.floating-logo {
+    position: fixed;
+    top: 60%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    z-index: 1;
+}
+
+/* Logo images styling */
+.logo-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 1;
+    transform: scale(0.8) rotate(0deg);
+}
+
+/* Primera variante del logo */
+.logo-img-1 {
+    animation: showFirst 9s infinite;
+}
+
+
+/* Animación para el primer logo */
+@keyframes showFirst {
+    25% {
+        transform: scale(1.2) rotate(0deg);
+    }
+    50% {
+        transform: scale(0.8) rotate(0deg);
+    }
+    75% {
+
+        transform: scale(1.2) rotate(0deg);
+    }
+    100% {
+        transform: scale(0.8) rotate(0deg);
+    }
+}
+
+/* Shibuya-style neon title */
+h1 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: #fff;
+    text-shadow: 
+        0 0 10px var(--neon-yellow),
+        0 0 20px var(--neon-yellow),
+        0 0 40px var(--neon-yellow),
+        0 0 80px var(--neon-yellow);
+}
+/* Cursed energy-inspired form container */
+#loginForm {
+    position: absolute; /* Para posicionarlo respecto al fondo */
+    bottom: 5%; /* Separación desde la parte inferior */
+    left: 5%; /* Separación desde el lado izquierdo */
+    width: 350px; /* Tamaño considerable pero no demasiado grande */
+    max-width: 90%; /* Para pantallas más pequeñas */
+    background: rgba(15, 15, 20, 0.8);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 2px solid var(--neon-yellow);
+    box-shadow: 
+        0 0 15px rgb(255, 230, 0),
+        inset 0 0 15px rgba(255, 255, 51);
+    backdrop-filter: blur(10px);
+    transform: skew(-5deg);
+    z-index: 1; /* Asegura que esté encima del fondo */
+}
+
+/* Form elements styling */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--neon-yellow);
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'Teletactile', 'Dogica';
+}
+
+input, select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--neon-yellow);
+    border-radius: 5px;
+    color: var(--neon-yellow);
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--neon-yellow);
+    box-shadow: 0 0 10px var(--neon-yellow);
+}
+
+button {
+    width: 100%;
+    padding: 1rem;
+    background: var(--neon-yellow);
+    border: none;
+    border-radius: 5px;
+    color: #000000;
+    font-family: 'Teletactile', 'Dogica';
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(204, 255, 0, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+button:hover {
+    background: #FFD700;
+    transform: translateY(-2px);
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+option, select {
+    color: #000000;
+    font-family: 'Teletactile', 'Dogica';
+}
+
+#iconSelect {
+    background-color: var(--neon-yellow);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1280px) {
+    #loginForm {
+        width: 300px;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .floating-logo {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 720px) {
+    #loginForm {
+        width: 90%;
+        left: 5%;
+        bottom: 5%;
+    }
+}
+
+@media (max-width: 600px) {
+    .floating-logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        letter-spacing: 0.2em;
+    }
+
+    #loginForm {
+        width: 90%;
+        left: 50%;
+        transform: translateX(-50%) skew(-5deg);
+    }
+}

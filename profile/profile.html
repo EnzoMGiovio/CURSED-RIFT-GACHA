@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'">
+    <link rel="stylesheet" href="profilestyle.css">
+</head>
+<body>
+    <div id="profile">
+        <h1>Profile</h1>
+        <button><a href="../index.html">GACHA</a></button>
+        <button><a href="../login/login.html">LOGIN</a></button>
+        <div>
+            <img id="userIcon" alt="User Icon">
+            <h2 id="usernameDisplay"></h2>
+        </div>
+        <div id="achievementsPopup" class="popup-overlay" style="display: none;">
+            <div class="popup-content">
+                <h2>Achievements</h2>
+                <div id="achievementsList"></div>
+                <button><a id="closeAchievements" href="#">Achievements</a></button>
+            </div>
+        </div>
+        <button><a id="showAchievements" href="#">Achievements</a></button>
+        <!-- Idle button -->
+        <button><a href="../idle/idle.html">Idle</a></button>
+
+    </div>
+    <div id="favorites">
+        <h3>Favorites</h3>
+        <div id="favoriteList"></div>
+    </div>
+    <div id="inventory">
+        <h3>Inventory</h3>
+        <div id="inventoryList"></div>
+    </div>
+    <div id="missingCharacters">
+        <h3>Characters Not Yet Obtained</h3>
+        <div id="missingList"></div>
+    </div>
+    <script src="profileRenderer.js"></script>
+</body>
+</html>

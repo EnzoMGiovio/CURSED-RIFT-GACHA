@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'">
+    <link rel="stylesheet" href="loginstyle.css">
+</head>
+<body>
+    <div class="floating-logo">
+        <img src="../assets/img/bg/GACHA_1.png" alt="GACHA Logo 1" class="logo-img logo-img-1">
+    </div>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+        
+        <label for="iconSelect">Icon:</label>
+        <select id="iconSelect">
+            <option value="..\assets\img\pfp\icon_texture.png">Itadori</option>
+            <option value="..\assets\img\pfp\MAHITO_PFP.png">Mahito</option>
+            <option value="..\assets\img\pfp\GOJO_PFP.png">Gojo</option>
+        </select>
+        
+        <button type="submit">Start</button>
+    </form>
+</body>
+<script src="login.js"></script>
+</html>

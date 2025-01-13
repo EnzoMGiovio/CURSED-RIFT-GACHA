@@ -1,0 +1,61 @@
+@font-face {
+    font-family: "Dogica";
+    src: url('../assets/fonts/dogica.ttf')
+}
+
+:root {
+    --neon-yellow: #FFFF33;
+    --dark-yellow: #FFD700;
+    --curse-blue: #2c3e50;
+}
+
+
+body {
+    font-family: 'Dogica', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(145deg, #1a1a1d, #121212);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.alert-container {
+    text-align: center;
+    background: var(--curse-blue);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px var(--neon-yellow);
+    border: 2px solid var(--neon-yellow);
+}
+
+.alert-container h1 {
+    font-size: 20px;
+    color: var(--neon-yellow);
+    margin-bottom: 15px;
+}
+
+.alert-container p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin: 5px 0 15px;
+    color: #ccc;
+}
+
+.alert-container button {
+    padding: 12px 25px;
+    border: none;
+    background: var(--neon-yellow);
+    color: black;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.alert-container button:hover {
+    background: var(--dark-yellow);
+    transform: scale(1.05);
+}
